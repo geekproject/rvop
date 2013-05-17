@@ -6,4 +6,5 @@ package eu.geekproject.rvop;
  */
 public interface OptimizationProblem {
     double evaluate(double[] individuum);
+    String getName();
 }
