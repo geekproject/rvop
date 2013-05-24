@@ -4,11 +4,25 @@
  */
 package eu.geekproject.rvop;
 
+import eu.geekproject.rvop.constraints.Constraint;
+import eu.geekproject.rvop.constraints.ValueConstraint;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author becker
  */
 public class StyblinskiTang implements OptimizationProblem {
+    private List<Constraint> constraints;
+
+    public StyblinskiTang(int dimensions) {
+        this.constraints = new ArrayList<Constraint>(dimensions);
+        for(int i = 0; i < dimensions; i++) {
+            constraints.add(new ValueConstraint(-5, 5));
+        }
+    }
 
     /**
      * Evaluation of individuum by the Styblinsky-Tang function.
@@ -31,5 +45,10 @@ public class StyblinskiTang implements OptimizationProblem {
     public String getName() {
         return "StyblinskiTang";
     }
-    
+
+    @Override
+    public List<Constraint> getDefaultConstraints() {
+        return this.constraints;
+    }
+
 }
