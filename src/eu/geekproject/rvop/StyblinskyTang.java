@@ -14,15 +14,9 @@ import java.util.List;
  *
  * @author becker
  */
-public class StyblinskiTang implements OptimizationProblem {
+public class StyblinskyTang implements OptimizationProblem {
     private List<Constraint> constraints;
-
-    public StyblinskiTang(int dimensions) {
-        this.constraints = new ArrayList<Constraint>(dimensions);
-        for(int i = 0; i < dimensions; i++) {
-            constraints.add(new ValueConstraint(-5, 5));
-        }
-    }
+    private int dimension;
 
     /**
      * Evaluation of individuum by the Styblinsky-Tang function.
@@ -41,9 +35,30 @@ public class StyblinskiTang implements OptimizationProblem {
         return result / 2;
     }
 
+    /**
+     * Set the dimension of the Problem
+     * @param dimension
+     */
+    @Override
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+        this.updateConstraints();
+    }
+
+    /**
+     * Updates the default constraints whenever the dimension
+     * has changed.
+     */
+    private void updateConstraints() {
+        this.constraints = new ArrayList<Constraint>(this.dimension);
+        for(int i = 0; i < dimension; i++) {
+            constraints.add(new ValueConstraint(-5, 5));
+        }
+    }
+
     @Override
     public String getName() {
-        return "StyblinskiTang";
+        return "StyblinskyTang";
     }
 
     @Override

@@ -1,9 +1,15 @@
 package eu.geekproject.rvop;
 
+import eu.geekproject.rvop.constraints.Constraint;
+
+import java.util.List;
+
 /**
  *
  */
 public class Griewank implements OptimizationProblem {
+    private int dimension;
+
     @Override
     public double evaluate(double[] individuum) {
         double sum = 0.0;
@@ -18,7 +24,17 @@ public class Griewank implements OptimizationProblem {
     }
 
     @Override
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+    }
+
+    @Override
     public String getName() {
         return "Griewank";
+    }
+
+    @Override
+    public List<Constraint> getDefaultConstraints() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

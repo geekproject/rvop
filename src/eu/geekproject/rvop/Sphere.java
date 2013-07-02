@@ -11,13 +11,7 @@ import java.util.List;
  */
 public class Sphere implements OptimizationProblem {
     private List<Constraint> constraints;
-
-    public Sphere(int dimensions) {
-        this.constraints =  new ArrayList<Constraint>(dimensions);
-        for(int i = 0; i < dimensions; i++) {
-            this.constraints.add(new ValueConstraint(-10,10));
-        }
-    }
+    private int dimension;
 
     @Override
     public double evaluate(double[] individuum) {
@@ -29,12 +23,25 @@ public class Sphere implements OptimizationProblem {
     }
 
     @Override
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+        this.updateConstraints();
+    }
+
+    private void updateConstraints() {
+        this.constraints =  new ArrayList<Constraint>(this.dimension);
+        for(int i = 0; i < this.dimension; i++) {
+            this.constraints.add(new ValueConstraint(-10,10));
+        }
+    }
+
+    @Override
     public String getName() {
         return "Sphere";
     }
 
     @Override
     public List<Constraint> getDefaultConstraints() {
-        this.constraints;
+        return this.constraints;
     }
 }
