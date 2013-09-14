@@ -10,6 +10,7 @@ import java.util.List;
 public interface OptimizationProblem {
     double evaluate(double[] individuum);
     void setDimension(int dimension);
+    int getDimension();
     String getName();
     List<Constraint> getDefaultConstraints();
 }

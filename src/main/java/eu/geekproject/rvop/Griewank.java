@@ -29,9 +29,15 @@ public class Griewank implements OptimizationProblem {
     }
 
     @Override
+    public int getDimension() {
+        return this.dimension;
+    }
+
+    @Override
     public String getName() {
         return "Griewank";
     }
+
 
     @Override
     public List<Constraint> getDefaultConstraints() {

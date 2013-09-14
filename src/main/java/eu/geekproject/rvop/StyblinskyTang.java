@@ -45,6 +45,11 @@ public class StyblinskyTang implements OptimizationProblem {
         this.updateConstraints();
     }
 
+    @Override
+    public int getDimension() {
+        return this.dimension;
+    }
+
     /**
      * Updates the default constraints whenever the dimension
      * has changed.

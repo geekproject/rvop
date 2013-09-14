@@ -22,10 +22,16 @@ public class Sphere implements OptimizationProblem {
         return result;
     }
 
+
     @Override
     public void setDimension(int dimension) {
         this.dimension = dimension;
         this.updateConstraints();
+    }
+
+    @Override
+    public int getDimension() {
+        return this.dimension;
     }
 
     private void updateConstraints() {
