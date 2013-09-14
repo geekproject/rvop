@@ -16,7 +16,7 @@ public class Schwefel implements OptimizationProblem {
     @Override
     public double evaluate(double[] individuum) {
         double result = 0.0;
-        for(int i = 0; i < individuum.length - 1; i++) {
+        for(int i = 0; i < individuum.length; i++) {
             result += -individuum[i] * Math.sin(Math.sqrt(Math.abs(individuum[i])));
         }
         return result;

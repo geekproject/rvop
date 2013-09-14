@@ -19,7 +19,11 @@ public class SchwefelTest {
     public void testEvaluate() throws Exception {
         for(int i = 1; i <= 30; i++) {
             double[] individual = new double[i];
-            org.junit.Assert.assertEquals(0.0, schwefelFunction.evaluate(individual), 0.0);
+            org.junit.Assert.assertEquals(0.0, schwefelFunction.evaluate(individual), 0.001);
+            for(int j = 0; j < individual.length; j++) {
+                individual[j] = 420.9687;
+            }
+            org.junit.Assert.assertEquals(-i * 418.9829, schwefelFunction.evaluate(individual), 0.001);
         }
     }
 }
