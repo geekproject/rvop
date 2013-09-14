@@ -23,11 +23,11 @@ public class ValueConstraintTest {
 
     @Test
     public void testGetMin() throws Exception {
-        org.junit.Assert.assertEquals("Minimum should be 0.0", 0.0, valueConstraint.getMin());
+        org.junit.Assert.assertEquals(0.0, valueConstraint.getMin(), 0.01);
     }
 
     @Test
     public void testGetMax() throws Exception {
-        org.junit.Assert.assertEquals("Maximum should be 10.0", 10.0, valueConstraint.getMax());
+        org.junit.Assert.assertEquals(10.0, valueConstraint.getMax(), 0.01);
     }
 }
