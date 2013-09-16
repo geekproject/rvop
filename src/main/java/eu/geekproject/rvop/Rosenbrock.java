@@ -15,20 +15,16 @@ public class Rosenbrock implements OptimizationProblem {
 
     @Override
     public double evaluate(double[] individual) {
-        double sum = 0.0;
-        double [] v = new double[individual.length];
+        double result = 0.0;
 
-        for (int i = 0; i < individual.length; i++) {
-            v[i] = individual[i] + 1;
+        for(int i = 0; i < individual.length -1; i++) {
+            result += 100 *
+                    Math.pow(Math.pow(individual[i], 2) - individual[i+1], 2) +
+                    Math.pow(1 - individual[i], 2);
         }
 
-        for (int i = 0 ; i < (individual.length-1) ; i ++) {
-            double temp1 = (v[i] * v[i]) - v[i+1];
-            double temp2 = v[i] - 1.0;
-            sum += (100.0 * temp1 * temp1) + (temp2 * temp2);
-        }
 
-        return sum;
+        return result;
     }
 
 

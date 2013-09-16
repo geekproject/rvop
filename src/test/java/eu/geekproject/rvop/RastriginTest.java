@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  *
  */
-public class RastriginTest
+public class RastriginTest {
     private Rastrigin rastriginFunction;
 
     @Before
