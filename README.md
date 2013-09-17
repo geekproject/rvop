@@ -8,6 +8,7 @@ rvop is a real-valued optimization problem library for Java. These kind of probl
 | --------------- | ---------- | ---------- | -------------- |
 | Ackley          | Multimodal | Asymmetric | Inseperable    |
 | Griewank        | Multimodal |            | Inseperable    |
+| Lunacek         | Multimodal | Asymmetric | Inseperable    |
 | Rastrigin       | Multimodal |            |                |
 | Rosenbrock      | Multimodal | Asymmetric | Inseperable    |
 | Schwefel        | Multimodal | Asymmetric |                |
