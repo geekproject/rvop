@@ -14,10 +14,10 @@ public class Schwefel implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individuum) {
+    public double evaluate(double[] individual) {
         double result = 0.0;
-        for(int i = 0; i < individuum.length; i++) {
-            result += -individuum[i] * Math.sin(Math.sqrt(Math.abs(individuum[i])));
+        for(int i = 0; i < individual.length; i++) {
+            result += -individual[i] * Math.sin(Math.sqrt(Math.abs(individual[i])));
         }
         return result;
     }

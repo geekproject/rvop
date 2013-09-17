@@ -23,14 +23,15 @@ public class StyblinskyTang implements OptimizationProblem {
      *
      * Global optimum: f(x)=-39.166165n for x = -2.903351
      *
-     * @param individuum
+     *
+     * @param individual
      * @return
      */
     @Override
-    public double evaluate(double[] individuum) {        
+    public double evaluate(double[] individual) {
         double result = 0.0;
-        for (int i = 0; i < individuum.length; i++) {
-            result  += Math.pow(individuum[i], 4) - 16 * Math.pow(individuum[i], 2) + 5 * individuum[i];
+        for (int i = 0; i < individual.length; i++) {
+            result  += Math.pow(individual[i], 4) - 16 * Math.pow(individual[i], 2) + 5 * individual[i];
         }
         return result / 2;
     }

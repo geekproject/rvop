@@ -11,17 +11,17 @@ public class Ackley implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individuum) {
+    public double evaluate(double[] individual) {
         double sum1 = 0.0;
         double sum2 = 0.0;
 
-        for (double anIndividuum : individuum) {
+        for (double anIndividuum : individual) {
             sum1 += (anIndividuum * anIndividuum);
             sum2 += (Math.cos(2 * Math.PI * anIndividuum));
         }
 
-        return (-20.0 * Math.exp(-0.2 * Math.sqrt(sum1 / ((double )individuum.length))) -
-                Math.exp(sum2 / ((double )individuum.length)) + 20.0 + Math.E);
+        return (-20.0 * Math.exp(-0.2 * Math.sqrt(sum1 / ((double ) individual.length))) -
+                Math.exp(sum2 / ((double ) individual.length)) + 20.0 + Math.E);
     }
 
     @Override

@@ -11,13 +11,13 @@ public class Griewank implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individuum) {
+    public double evaluate(double[] individual) {
         double sum = 0.0;
         double prod = 0.0;
 
-        for(int i = 0; i < individuum.length; i++) {
-            sum += Math.pow(individuum[i], 2);
-            prod *= individuum[i] / Math.sqrt(i+1);
+        for(int i = 0; i < individual.length; i++) {
+            sum += Math.pow(individual[i], 2);
+            prod *= individual[i] / Math.sqrt(i+1);
         }
 
         return 1 + (sum/4000) - prod;

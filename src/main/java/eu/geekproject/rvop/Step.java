@@ -14,9 +14,9 @@ public class Step implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individuum) {
+    public double evaluate(double[] individual) {
         double result = 0.0;
-        for(double v : individuum) {
+        for(double v : individual) {
             result += Math.pow(Math.floor(v + 0.5), 2);
         }
         return result;

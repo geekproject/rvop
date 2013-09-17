@@ -8,7 +8,7 @@ import java.util.List;
  * @author halfdan
  */
 public interface OptimizationProblem {
-    double evaluate(double[] individuum);
+    double evaluate(double[] individual);
     void setDimension(int dimension);
     int getDimension();
     String getName();
