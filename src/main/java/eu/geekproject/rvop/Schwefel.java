@@ -16,10 +16,11 @@ public class Schwefel implements OptimizationProblem {
     @Override
     public double evaluate(double[] individual) {
         double result = 0.0;
+        double alpha = 418.982887;
         for(int i = 0; i < individual.length; i++) {
             result += -individual[i] * Math.sin(Math.sqrt(Math.abs(individual[i])));
         }
-        return result;
+        return result + alpha * individual.length;
     }
 
 
@@ -37,7 +38,7 @@ public class Schwefel implements OptimizationProblem {
     private void updateConstraints() {
         this.constraints =  new ArrayList<>(this.dimension);
         for(int i = 0; i < this.dimension; i++) {
-            this.constraints.add(new ValueConstraint(-500,500));
+            this.constraints.add(new ValueConstraint(-512,512));
         }
     }
 
