@@ -8,9 +8,9 @@ import java.util.List;
  * @author halfdan
  */
 public interface OptimizationProblem {
-    double evaluate(double[] individual);
+    double evaluate(double[] solution);
     void setDimension(int dimension);
     int getDimension();
     String getName();
-    List<Constraint> getDefaultConstraints();
+    Constraint getDefaultConstraint();
 }

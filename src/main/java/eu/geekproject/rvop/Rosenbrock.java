@@ -10,17 +10,16 @@ import java.util.List;
  * Sphere
  */
 public class Rosenbrock implements OptimizationProblem {
-    private List<Constraint> constraints;
     private int dimension;
 
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
         double result = 0.0;
 
-        for(int i = 0; i < individual.length -1; i++) {
+        for(int i = 0; i < solution.length -1; i++) {
             result += 100 *
-                    Math.pow(Math.pow(individual[i], 2) - individual[i+1], 2) +
-                    Math.pow(1 - individual[i], 2);
+                    Math.pow(Math.pow(solution[i], 2) - solution[i+1], 2) +
+                    Math.pow(1 - solution[i], 2);
         }
 
 
@@ -31,7 +30,6 @@ public class Rosenbrock implements OptimizationProblem {
     @Override
     public void setDimension(int dimension) {
         this.dimension = dimension;
-        this.updateConstraints();
     }
 
     @Override
@@ -39,12 +37,6 @@ public class Rosenbrock implements OptimizationProblem {
         return this.dimension;
     }
 
-    private void updateConstraints() {
-        this.constraints =  new ArrayList<>(this.dimension);
-        for(int i = 0; i < this.dimension; i++) {
-            this.constraints.add(new ValueConstraint(-10,10));
-        }
-    }
 
     @Override
     public String getName() {
@@ -52,7 +44,7 @@ public class Rosenbrock implements OptimizationProblem {
     }
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
-        return this.constraints;
+    public Constraint getDefaultConstraint() {
+        return new ValueConstraint(-10,10);
     }
 }

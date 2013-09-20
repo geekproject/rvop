@@ -10,36 +10,27 @@ import java.util.List;
  * Sphere
  */
 public class Schwefel implements OptimizationProblem {
-    private List<Constraint> constraints;
     private int dimension;
 
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
         double result = 0.0;
         double alpha = 418.982887;
-        for(int i = 0; i < individual.length; i++) {
-            result += -individual[i] * Math.sin(Math.sqrt(Math.abs(individual[i])));
+        for(int i = 0; i < solution.length; i++) {
+            result += -solution[i] * Math.sin(Math.sqrt(Math.abs(solution[i])));
         }
-        return result + alpha * individual.length;
+        return result + alpha * solution.length;
     }
 
 
     @Override
     public void setDimension(int dimension) {
         this.dimension = dimension;
-        this.updateConstraints();
     }
 
     @Override
     public int getDimension() {
         return this.dimension;
-    }
-
-    private void updateConstraints() {
-        this.constraints =  new ArrayList<>(this.dimension);
-        for(int i = 0; i < this.dimension; i++) {
-            this.constraints.add(new ValueConstraint(-512,512));
-        }
     }
 
     @Override
@@ -48,7 +39,7 @@ public class Schwefel implements OptimizationProblem {
     }
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
-        return this.constraints;
+    public Constraint getDefaultConstraint() {
+        return new ValueConstraint(-512,512);
     }
 }

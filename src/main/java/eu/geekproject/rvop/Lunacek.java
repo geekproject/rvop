@@ -16,23 +16,23 @@ public class Lunacek implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
 
         double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0;
         double u1, u2, s, d;
 
         d = 1;
-        s = 1 - (1/(2*Math.sqrt(individual.length+20)-8.2));
+        s = 1 - (1/(2*Math.sqrt(solution.length+20)-8.2));
         u1 = 2.5;
         u2 = - Math.sqrt((Math.pow(u1, 2)-d)/s);
 
-        for(int i = 0; i < individual.length; i++) {
-            sum1 += Math.pow(individual[i] - u1, 2);
-            sum2 += Math.pow(individual[i] - u2, 2);
-            sum3 += (1 - Math.cos(2 * Math.PI * (individual[i] - u1)));
+        for(int i = 0; i < solution.length; i++) {
+            sum1 += Math.pow(solution[i] - u1, 2);
+            sum2 += Math.pow(solution[i] - u2, 2);
+            sum3 += (1 - Math.cos(2 * Math.PI * (solution[i] - u1)));
         }
 
-        sum2 = d * individual.length + s * sum2;
+        sum2 = d * solution.length + s * sum2;
 
         return Math.min(sum1, sum2) + 10 * sum3;
     }
@@ -54,7 +54,7 @@ public class Lunacek implements OptimizationProblem {
 
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
+    public Constraint getDefaultConstraint() {
         return null;
     }
 }

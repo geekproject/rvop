@@ -11,13 +11,13 @@ public class Griewank implements OptimizationProblem {
     private int dimension;
 
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
         double sum = 0.0;
         double prod = 0.0;
 
-        for(int i = 0; i < individual.length; i++) {
-            sum += Math.pow(individual[i], 2);
-            prod *= individual[i] / Math.sqrt(i+1);
+        for(int i = 0; i < solution.length; i++) {
+            sum += Math.pow(solution[i], 2);
+            prod *= solution[i] / Math.sqrt(i+1);
         }
 
         return 1 + (sum/4000) - prod;
@@ -40,7 +40,7 @@ public class Griewank implements OptimizationProblem {
 
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
+    public Constraint getDefaultConstraint() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

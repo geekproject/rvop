@@ -15,7 +15,6 @@ import java.util.List;
  * @author becker
  */
 public class StyblinskyTang implements OptimizationProblem {
-    private List<Constraint> constraints;
     private int dimension;
 
     /**
@@ -24,14 +23,14 @@ public class StyblinskyTang implements OptimizationProblem {
      * Global optimum: f(x)=-39.166165n for x = -2.903351
      *
      *
-     * @param individual
+     * @param solution
      * @return
      */
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
         double result = 0.0;
-        for (int i = 0; i < individual.length; i++) {
-            result  += Math.pow(individual[i], 4) - 16 * Math.pow(individual[i], 2) + 5 * individual[i];
+        for (int i = 0; i < solution.length; i++) {
+            result  += Math.pow(solution[i], 4) - 16 * Math.pow(solution[i], 2) + 5 * solution[i];
         }
         return result / 2;
     }
@@ -43,7 +42,6 @@ public class StyblinskyTang implements OptimizationProblem {
     @Override
     public void setDimension(int dimension) {
         this.dimension = dimension;
-        this.updateConstraints();
     }
 
     @Override
@@ -51,16 +49,6 @@ public class StyblinskyTang implements OptimizationProblem {
         return this.dimension;
     }
 
-    /**
-     * Updates the default constraints whenever the dimension
-     * has changed.
-     */
-    private void updateConstraints() {
-        this.constraints = new ArrayList<Constraint>(this.dimension);
-        for(int i = 0; i < dimension; i++) {
-            constraints.add(new ValueConstraint(-5, 5));
-        }
-    }
 
     @Override
     public String getName() {
@@ -68,8 +56,8 @@ public class StyblinskyTang implements OptimizationProblem {
     }
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
-        return this.constraints;
+    public Constraint getDefaultConstraint() {
+        return new ValueConstraint(-5, 5);
     }
 
 }

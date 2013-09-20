@@ -10,13 +10,12 @@ import java.util.List;
  * Sphere
  */
 public class Sphere implements OptimizationProblem {
-    private List<Constraint> constraints;
     private int dimension;
 
     @Override
-    public double evaluate(double[] individual) {
+    public double evaluate(double[] solution) {
         double result = 0.0;
-        for(double v : individual) {
+        for(double v : solution) {
             result += Math.pow(v, 2);
         }
         return result;
@@ -26,19 +25,11 @@ public class Sphere implements OptimizationProblem {
     @Override
     public void setDimension(int dimension) {
         this.dimension = dimension;
-        this.updateConstraints();
     }
 
     @Override
     public int getDimension() {
         return this.dimension;
-    }
-
-    private void updateConstraints() {
-        this.constraints =  new ArrayList<Constraint>(this.dimension);
-        for(int i = 0; i < this.dimension; i++) {
-            this.constraints.add(new ValueConstraint(-10,10));
-        }
     }
 
     @Override
@@ -47,7 +38,7 @@ public class Sphere implements OptimizationProblem {
     }
 
     @Override
-    public List<Constraint> getDefaultConstraints() {
-        return this.constraints;
+    public Constraint getDefaultConstraint() {
+        return new ValueConstraint(-10,10);
     }
 }
