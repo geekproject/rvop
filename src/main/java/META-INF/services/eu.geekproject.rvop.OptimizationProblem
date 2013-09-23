@@ -1,10 +1,10 @@
 eu.geekproject.rvop.Ackley
-eu.geekproject.rvop.Griewank
+eu.geekproject.rvop.Griewangk
 eu.geekproject.rvop.Lunacek
-eu.geekproject.rvop.Step
-eu.geekproject.rvop.Sphere
-eu.geekproject.rvop.Schwefel
-eu.geekproject.rvop.StyblinskyTang
 eu.geekproject.rvop.Rastrigin
 eu.geekproject.rvop.Rosenbrock
+eu.geekproject.rvop.Schwefel
+eu.geekproject.rvop.Sphere
+eu.geekproject.rvop.Step
+eu.geekproject.rvop.StyblinskyTang
 eu.geekproject.rvop.Whitley

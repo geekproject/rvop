@@ -1,13 +1,14 @@
 package eu.geekproject.rvop;
 
 import eu.geekproject.rvop.constraints.Constraint;
+import eu.geekproject.rvop.constraints.ValueConstraint;
 
 import java.util.List;
 
 /**
  *
  */
-public class Griewank implements OptimizationProblem {
+public class Griewangk implements OptimizationProblem {
     private int dimension;
 
     @Override
@@ -35,12 +36,12 @@ public class Griewank implements OptimizationProblem {
 
     @Override
     public String getName() {
-        return "Griewank";
+        return "Griewangk";
     }
 
 
     @Override
     public Constraint getDefaultConstraint() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new ValueConstraint(-600, 600);
     }
 }

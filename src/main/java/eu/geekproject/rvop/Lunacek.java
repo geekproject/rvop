@@ -1,6 +1,7 @@
 package eu.geekproject.rvop;
 
 import eu.geekproject.rvop.constraints.Constraint;
+import eu.geekproject.rvop.constraints.ValueConstraint;
 
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class Lunacek implements OptimizationProblem {
 
     @Override
     public Constraint getDefaultConstraint() {
-        return null;
+        // Wild guess..
+        return new ValueConstraint(-10, 10);
     }
 }

@@ -1,6 +1,7 @@
 package eu.geekproject.rvop;
 
 import eu.geekproject.rvop.constraints.Constraint;
+import eu.geekproject.rvop.constraints.ValueConstraint;
 
 import java.util.List;
 
@@ -42,6 +43,6 @@ public class Ackley implements OptimizationProblem {
 
     @Override
     public Constraint getDefaultConstraint() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new ValueConstraint(-1, 1);
     }
 }

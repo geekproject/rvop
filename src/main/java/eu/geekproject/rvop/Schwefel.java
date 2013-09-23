@@ -15,7 +15,7 @@ public class Schwefel implements OptimizationProblem {
     @Override
     public double evaluate(double[] solution) {
         double result = 0.0;
-        double alpha = 418.982887;
+        double alpha = 418.983;
         for(int i = 0; i < solution.length; i++) {
             result += -solution[i] * Math.sin(Math.sqrt(Math.abs(solution[i])));
         }
@@ -40,6 +40,6 @@ public class Schwefel implements OptimizationProblem {
 
     @Override
     public Constraint getDefaultConstraint() {
-        return new ValueConstraint(-512,512);
+        return new ValueConstraint(-500,500);
     }
 }
