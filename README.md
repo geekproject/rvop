@@ -15,6 +15,7 @@ rvop is a real-valued optimization problem library for Java. These kind of probl
 | Sphere          |            |            |                |
 | Step            |            |            |                |
 | Styblinsky Tang |            |            |                |
+| Weighted Sphere |            |            |                |
 | Whitley         | Multimodal | Asymmetric | Inseperable    |
 
 ## Usage
