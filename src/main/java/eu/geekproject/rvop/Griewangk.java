@@ -14,14 +14,14 @@ public class Griewangk implements OptimizationProblem {
     @Override
     public double evaluate(double[] solution) {
         double sum = 0.0;
-        double prod = 0.0;
+        double prod = 1.0;
 
         for(int i = 0; i < solution.length; i++) {
             sum += Math.pow(solution[i], 2);
-            prod *= solution[i] / Math.sqrt(i+1);
+            prod *= Math.cos(solution[i] / Math.sqrt(i+1));
         }
 
-        return 1 + (sum/4000) - prod;
+        return sum/4000 - prod + 1;
     }
 
     @Override
